@@ -35,7 +35,7 @@ app.get('/stop', (req, res) => {
         }
         const pid = parseInt(data, 10) + 1;
         console.log('PID read from file:', pid);
-        cp.execFile("kill", ["-9", pid], {cwd:"."}, (error, out, err) => {
+        cp.execFile("pkill", ["ffmpeg"], {cwd:"."}, (error, out, err) => {
             if (error) {
                 throw error;
             }
